@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e7f2d9"><meta name="description" content="和奶蛙一起跳进好心情。按住蓄力，松手跳跃的手机小游戏。">
+  <title>奶蛙跳一跳 · Milk Hop</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%239bc965'/%3E%3Ccircle cx='10' cy='11' r='5' fill='%23eff8e5'/%3E%3Ccircle cx='22' cy='11' r='5' fill='%23eff8e5'/%3E%3Ccircle cx='10' cy='11' r='2' fill='%233b5136'/%3E%3Ccircle cx='22' cy='11' r='2' fill='%233b5136'/%3E%3Cpath d='M11 22 Q16 27 21 22' stroke='%233b5136' fill='none' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="header"><a class="brand" href="./" aria-label="奶蛙跳一跳首页"><span class="brand-icon">m.</span><span>MILK HOP<span class="brand-sub">奶蛙跳一跳</span></span></a><div class="header-right"><span class="edition">A LITTLE JUMP, A LITTLE JOY.</span><button id="sound" class="icon-button" aria-label="开启音效" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path id="sound-waves" d="m16 9 6 6m0-6-6 6"/></svg></button><button id="help" class="icon-button" aria-label="玩法说明">?</button></div></header>
+  <section class="game" aria-label="奶蛙跳一跳游戏">
+    <canvas id="game" aria-label="按住游戏画面蓄力，松开跳跃，也可以使用下方起跳按钮或空格键"></canvas>
+    <div class="hud"><div class="score-block"><span class="eyebrow">本次得分</span><strong id="score">0</strong><span id="combo" class="combo">每一跳，都是小进步</span></div><div class="record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 7 4 3 4-6 4 6 4-3-2 11H6L4 7Z"/></svg><span>最佳 <b id="best">0</b></span></div></div>
+    <div class="scene-label"><span class="pill">奶蛙的跳跃冒险</span><h1>今天，也要<br>轻轻一跃。</h1><p>跟着奶蛙，慢慢跳远一点。</p></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <div class="control"><div class="power-caption"><span id="hint">按住蓄力，松手跳跃</span><span id="power-number">0%</span></div><div class="power-track"><div id="power"></div><span></span><span></span><span></span></div><button id="jump" class="jump-button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19V5m-5 5 5-5 5 5"/><path d="M5 18v3h14v-3"/></svg><span id="jump-label">按住 · 蓄力起跳</span><span class="button-spark">✦</span></button><p class="control-note"><span class="touch-note">按住任意空白处也可以跳</span><span class="keyboard-note"><kbd>SPACE</kbd> 按住空格也可以跳</span></p></div>
+    <div class="bottom-mark">慢一点，也能跳很远 <span>✳</span></div>
+    <div id="loading" class="loading"><span class="loader"></span>奶蛙正在赶来…</div>
+  </section>
+  <footer><span>小小奶蛙，大大冒险。</span><span>落在中心 · 连跳加分 <span class="footer-flower">✳</span></span></footer>
+</main>
+<dialog id="help-dialog"><button class="close" aria-label="关闭说明">×</button><span class="modal-kicker">HOW TO HOP</span><h2>一按一松，<br>快乐起跳。</h2><ol><li><b>按住屏幕</b><span>奶蛙会蹲下蓄力，按得越久跳得越远。</span></li><li><b>松开手指</b><span>奶蛙会自动跳向下一个平台，注意别用力过头。</span></li><li><b>瞄准中心</b><span>落地得 1 分，连续落在中心可得 2、4、6…分，最高 10 分。</span></li></ol><button class="primary" id="help-close">知道啦，出发！</button></dialog>
+<dialog id="result-dialog"><span class="modal-kicker">NICE LITTLE ADVENTURE</span><div class="result-frog"><img src="frog.png" alt="奶蛙"></div><h2 id="result-title">休息一下，再跳一次</h2><p class="result-caption">每一次出发，都算数。</p><div class="result-score"><strong id="final-score">0</strong><span>本次得分</span></div><p id="record-note">最佳记录 0 分</p><button id="restart" class="primary">再跳一次 <span>↗</span></button></dialog>
+<script src="game.js"></script>
+</body></html>
